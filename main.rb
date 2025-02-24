@@ -19,11 +19,13 @@ def start_timer(seconds)
 	total_length = 30
 
 	seconds.downto(0) do |i|
+		minutes = i / 60
+		secs = i % 60
 		percent_complete = (total_length * (1 - i.to_f / seconds)).to_i
 		bar = "=" * percent_complete + " " * (total_length - percent_complete)
 		color = i <= 5 ? RED : GREEN
 
-		print "#{CLEAR_LINE}#{color}[#{bar}] #{BOLD}#{i} seconds left#{RESET}"
+		print "#{CLEAR_LINE}#{color}[#{bar}] #{BOLD}#{minutes} minutes #{secs} seconds left#{RESET}"
 		sleep(1)
 	end
 	trigger_alarm
@@ -68,6 +70,6 @@ def build_vlc_player
 
 end
 
-duration =  10
+duration = 25 * 60
 
 start_timer(duration)
