@@ -2,7 +2,7 @@ require 'ffi'
 
 module VLC
 	extend FFI::Library
-	ffi_lib "C:\\Program Files\\VideoLAN\\VLC\\libvlc.dll"
+	ffi_lib ENV["LIBVLC_PATH"]
 
 	attach_function :libvlc_new, [:int, :pointer], :pointer
   	attach_function :libvlc_media_new_path, [:pointer, :string], :pointer

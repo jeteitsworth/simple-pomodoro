@@ -70,6 +70,12 @@ def build_vlc_player
 
 end
 
-duration = 25 * 60
+print "Time in minutes: "
+minutes = gets.chomp.to_i
 
-start_timer(duration)
+if minutes then
+	duration = minutes * 60 
+	start_timer(duration)
+else
+	puts "That wasn't a valid number of minutes."
+end
